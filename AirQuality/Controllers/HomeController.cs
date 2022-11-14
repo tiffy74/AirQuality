@@ -27,7 +27,7 @@ namespace AirQuality.Controllers
 
         public async Task<IActionResult> City(string city)
         {
-            // var myresponse = _cityService.GetAllCities();
+            // Get result from CityService
             Root root = new Root();
             if (!string.IsNullOrEmpty(city))
             {
@@ -37,7 +37,6 @@ namespace AirQuality.Controllers
         }
         public async Task<IActionResult> Country(string country)
         {
-            // var myresponse = _cityService.GetAllCities();
             Root root = new Root();
             if (!string.IsNullOrEmpty(country))
             {
