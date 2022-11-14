@@ -1,0 +1,53 @@
+﻿@model AirQuality.Models.Root;
+@{
+    ViewData["Title"] = "Country Search";
+}
+
+<div>
+    <h3 class="display-4">Air Quality Country Search</h3>
+        <center>
+            <form asp-controller="Home" asp-action="Country">
+                <table>
+                    <tr>
+                        <td>Enter a Country Code (e.g. Great Britain = GB): </td>
+                        <td><input type="text" id="country" name="country" /></td>
+                        <td><input type="submit" value="Submit" /></td>
+                    </tr>
+                </table>
+                <hr />
+            </form>
+        </center>     
+  @if (Model.Results != null && Model.Results.Count() > 0)
+    {
+        <div>
+            <table class="table table-bordered table-striped table-sm">
+                <thead>
+                    <tr>
+                        <th>Country Name</th>
+                        <th>Locations</th>
+                        <th>Count</th>
+                        <th>Parameters</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var countryresult in Model.Results)
+                    {
+                            <tr>
+                            <td>@Html.DisplayFor(modelItem => countryresult.Name)</td>
+                            <td>@Html.DisplayFor(modelItem => countryresult.Locations)</td>
+                            <td>@Html.DisplayFor(modelItem => countryresult.Count)</td>
+                            <td>
+                                <ul>@foreach (var str in countryresult.Parameters)
+                                {
+                                    <li>@str</li>
+                                }
+                                </ul>
+                                 
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    }
+</div>
