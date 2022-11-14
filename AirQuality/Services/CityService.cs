@@ -24,9 +24,12 @@ namespace AirQuality.Services
 
         public async Task<Root> GetAllCities(string city)
         {
+            // querystring with string parameter for search form
             var url = string.Format("cities?limit=1000&page=1&offset=0&sort=asc&order_by=city&city={0}", city);
             var result = new Root();
+            // combine querystring with base url
             var response = await client.GetAsync(url);
+            // deserialise json result
             if (response.IsSuccessStatusCode)
             {
                 var stringResponse = await response.Content.ReadAsStringAsync();
@@ -38,7 +41,7 @@ namespace AirQuality.Services
             {
                 throw new HttpRequestException(response.ReasonPhrase);
             }
-
+            // return deserialised data
             return result;
         }
         public async Task<Root> GetAllCountries(string country)
