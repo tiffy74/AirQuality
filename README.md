@@ -1,4 +1,4 @@
-# AirQuality
+# AirQuality 
 
 This is a basic application using .net Core for consuming the OpenAQ Air Quality API at https://docs.openaq.org/docs
 
@@ -8,7 +8,14 @@ City - This displays Air Quality data on UK based cities.
 
 Country - This displays Air Quality data for countries.  In order to access this data, users will need to enter the country code in two letter ISO format.  For example the UK can be accessed by entering GB into the search
 
-// TODO:
+## Key features
 
-- [ ] Search by full country name
-- [ ] Add measurements data
+- Asp.net Core
+- Dependency Injection
+- HttpClient
+
+## TODO List:
+
+- Search by full country name
+- Add measurements data
+- Repository Design Pattern
